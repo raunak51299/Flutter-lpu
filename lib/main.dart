@@ -56,37 +56,26 @@ void main() {
     MaterialApp(
         home: Scaffold(
             body: SafeArea(
-      child: Center(
-          child: Container(
-        height: 200,
-        width: 200,
-        decoration: BoxDecoration(
-          border: Border.all(
-            width: 10,
-            color: Colors.cyan,
-          ),
-          borderRadius: BorderRadius.circular(40),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+        Container(
+          width: 100,
+          color: Colors.red,
+          child: const Text('I am red'),
         ),
-        child: Stack(children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(30),
-            child: Image.asset(
-              "images/kelly-sikkema-sK0dKnDOcEM-unsplash.jpg",
-              fit: BoxFit.cover,
-            ),
-          ),
-          Container(
-            //alignment: Alignment.center,
-            child: const Text(
-              'COFFEE',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 35,
-                  fontWeight: FontWeight.w900),
-            ),
-          )
-        ]),
-      )),
+        Container(
+          width: 100,
+          color: Colors.blue,
+          child: const Text('I am blue'),
+        ),
+        Container(
+          width: 100,
+          color: Colors.green,
+          child: const Text('I am green'),
+        ),
+      ],)
     ))),
   );
 }
