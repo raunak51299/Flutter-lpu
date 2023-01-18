@@ -53,7 +53,6 @@ import 'package:flutter/material.dart';
 //   ));
 // }
 
-
 // first question
 // void main() {
 //   runApp(
@@ -107,11 +106,66 @@ import 'package:flutter/material.dart';
 //               )
 //             )
 //           ],)
-        
+
 //         ),
 //       ),
 //     ),
 //   );
+// }
+
+// void main() {
+//   runApp(
+//     MaterialApp(
+//         home: Scaffold(
+//             body: SafeArea(
+//       child: Container(
+//         color: Colors.yellow,
+//         width: 150,
+//         child: SingleChildScrollView(
+//           scrollDirection: Axis.vertical,
+//           physics: BouncingScrollPhysics(),
+//           child: Column(
+//             children: [...getWidgets()],
+//           ),
+//         ))
+//     ))),
+//   );
+// }
+
+// List<Widget> getWidgets() {
+//   List<Color> myContainerColors = [
+//     Colors.red,
+//     Colors.blue,
+//     Colors.green,
+//     Colors.yellow,
+//     Colors.orange,
+//     Colors.purple,
+//     Colors.pink,
+//     Colors.brown,
+//     Colors.cyan,
+//     Colors.indigo,
+//     Colors.lime,
+//     Colors.teal,
+//     Colors.amber,
+//     Colors.deepOrange,
+//     Colors.deepPurple,
+//     Colors.lightBlue,
+//     Colors.lightGreen,
+//     Colors.grey,
+//     Colors.black,
+//     Colors.white,
+//   ];
+//   List<Widget> myResult = [];
+
+//   for (var i = 0; myContainerColors.length > i; i++) {
+//     myResult.add(Container(
+//       color: myContainerColors[i].withAlpha(100),
+//       child: Row(children: [
+//         Container(width: 100, height: 100, color: myContainerColors[i], child: Center(child: Text("${i+1}"))),
+//       ],)
+//     ));
+//   }
+//   return myResult;
 // }
 
 void main() {
@@ -119,20 +173,12 @@ void main() {
     MaterialApp(
         home: Scaffold(
             body: SafeArea(
-      child: Container(
-        color: Colors.yellow,
-        width: 150,
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          physics: BouncingScrollPhysics(),
-          child: Column(
-            children: [...getWidgets()],
-          ),
-
-
-
-        ))
-    ))),
+                child: Container(
+                    child: Stack(
+      alignment: AlignmentDirectional.bottomEnd,
+      fit: StackFit.loose,
+      children: [...getWidgets()],
+    ))))),
   );
 }
 
@@ -147,27 +193,24 @@ List<Widget> getWidgets() {
     Colors.pink,
     Colors.brown,
     Colors.cyan,
-    Colors.indigo,
-    Colors.lime,
-    Colors.teal,
-    Colors.amber,
-    Colors.deepOrange,
-    Colors.deepPurple,
-    Colors.lightBlue,
-    Colors.lightGreen,
-    Colors.grey,
-    Colors.black,
-    Colors.white,
   ];
   List<Widget> myResult = [];
 
   for (var i = 0; myContainerColors.length > i; i++) {
     myResult.add(Container(
-      color: myContainerColors[i].withAlpha(100),
-      child: Row(children: [
-        Container(width: 100, height: 100, color: myContainerColors[i], child: Center(child: Text("${i+1}"))),
-      ],)
-    ));
+        //color: myContainerColors[i].withAlpha(100),
+        child: Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0 * i),
+              child: Container(
+                  width: 100,
+                  height: 100,
+                  color: myContainerColors[i],
+                  child: Center(child: Text("${i + 1}"))),
+            ),
+          ],
+        )));
   }
   return myResult;
 }
