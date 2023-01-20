@@ -168,49 +168,223 @@ import 'package:flutter/material.dart';
 //   return myResult;
 // }
 
+// void main() {
+//   runApp(
+//     MaterialApp(
+//         home: Scaffold(
+//             body: SafeArea(
+//                 child: Container(
+//                     child: Stack(
+//       //alignment: AlignmentDirectional.bottomEnd,
+//       fit: StackFit.loose,
+//       children: [...getWidgets()],
+//     ))))),
+//   );
+// }
+
+// List<Widget> getWidgets() {
+//   List<Color> myContainerColors = [
+//     Colors.red,
+//     Colors.blue,
+//     Colors.green,
+//     Colors.yellow,
+//     Colors.orange,
+//     Colors.purple,
+//     Colors.pink,
+//     Colors.brown,
+//     Colors.cyan,
+//   ];
+//   List<Widget> myResult = [];
+
+//   for (var i = 0; myContainerColors.length > i; i++) {
+//     myResult.add(Container(
+//         //color: myContainerColors[i].withAlpha(100),
+//         child: Row(
+//           children: [
+//             Padding(
+//               padding: EdgeInsets.all(8.0 * i),
+//               child: Container(
+//                   width: 100,
+//                   height: 100,
+//                   color: myContainerColors[i],
+//                   child: Center(child: Text("${i + 1}"))),
+//             ),
+//           ],
+//         )));
+//   }
+//   return myResult;
+// }
+
+// List<Widget> getWidgets() {
+//   List<Color> myContainerColors = [
+//     Colors.red,
+//     Colors.blue,
+//   ];
+//   List<Widget> myResult = [];
+
+//   for (var i = 0; myContainerColors.length > i; i++) {
+//     myResult.add(Container(
+//       //color: myContainerColors[i].withAlpha(100),
+//       child: Positioned(
+//           width: (i == 1) ? 10 : 100,
+//           height: (i == 1) ? 10 : 100,
+//           child: Container(
+//             width: 100 / (i + 1),
+//             height: 100 / (i + 1),
+//             color: myContainerColors[i],
+//             child: Center(child: Text("${i + 1}")),
+//           )),
+//     ));
+//   }
+//   return myResult;
+// }
+
+//assignment
+// void main(){
+//   // make a stack with 2 containers
+//   runApp(MaterialApp(
+//     home: Scaffold(
+//       body: SafeArea(
+//         child: Center(
+//           child: Container(
+//             // add text above the container
+//             child: Stack(
+//               children: [
+//                 Container(
+//                   alignment: Alignment.center,
+//                   child: Text('1234567890'),
+//                   width: 100,
+//                   height: 30,
+//                   //color: Colors.red,
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(30),
+//                     border: Border.all(color: Colors.green, width: 1),
+//                   ),
+//                 ),
+//                 Container(
+
+//                   alignment: Alignment.center,
+//                   child: Icon(Icons.check, color: Colors.green, size: 25),
+
+//                   margin: EdgeInsets.only(left: 90),
+//                   width: 30,
+//                   height: 30,
+//                   //color: Colors.red,
+//                   decoration: BoxDecoration(
+//                     color: Colors.white,
+//                     border: Border.all(color: Colors.green, width: 1),
+//                     borderRadius: BorderRadius.circular(30),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     ),
+//   ));
+// }
+// void main() {
+//   runApp(MaterialApp(
+//     home: Scaffold(
+//         body: SafeArea(
+//       child: ListView(children: [
+//         Container(
+//           child: MyCustomWidget(myColor: Colors.green, myHeight: 300),
+//         ),
+//         Container(
+//           child: MyCustomWidget(myColor: Colors.red, myHeight: 200),
+//         ),
+//       ]),
+//     )),
+//   ));
+// }
+
+//map
+// void main() {
+//   Map<int, String> myStringMap = {1: " one", 2: " two", 3: " three"};
+//   myStringMap.addAll({4: " four", 5: " five"});
+//   myStringMap[1] = "zero";
+//   print(myStringMap[1]);
+// }
+
+// class MyCustomWidget extends StatelessWidget {
+//   final Color myColor;
+//   final double myHeight;
+
+//   const MyCustomWidget({required this.myColor, required this.myHeight});
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       children: [
+//         Container(
+//           height: myHeight,
+//           color: myColor,
+//         ),
+//         SizedBox(
+//           child: Text('1234567890'),
+//           height: 10,
+//         )
+//       ],
+//     );
+//   }
+// }
+
 void main() {
-  runApp(
-    MaterialApp(
-        home: Scaffold(
-            body: SafeArea(
-                child: Container(
-                    child: Stack(
-      alignment: AlignmentDirectional.bottomEnd,
-      fit: StackFit.loose,
-      children: [...getWidgets()],
-    ))))),
-  );
+  runApp(MaterialApp(
+    home: Scaffold(
+      body: SafeArea(
+        child: MyCounterWidget(),
+      ),
+    ),
+  ));
 }
 
-List<Widget> getWidgets() {
-  List<Color> myContainerColors = [
-    Colors.red,
-    Colors.blue,
-    Colors.green,
-    Colors.yellow,
-    Colors.orange,
-    Colors.purple,
-    Colors.pink,
-    Colors.brown,
-    Colors.cyan,
-  ];
-  List<Widget> myResult = [];
-
-  for (var i = 0; myContainerColors.length > i; i++) {
-    myResult.add(Container(
-        //color: myContainerColors[i].withAlpha(100),
-        child: Row(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(8.0 * i),
-              child: Container(
-                  width: 100,
-                  height: 100,
-                  color: myContainerColors[i],
-                  child: Center(child: Text("${i + 1}"))),
-            ),
-          ],
-        )));
+class MyCounterWidget extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return MyCounterWidgetState();
   }
-  return myResult;
+}
+
+class MyCounterWidgetState extends State<MyCounterWidget> {
+  int myCounter = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(padding: EdgeInsets.all(20), child: Text("Counter")),
+        Padding(padding: EdgeInsets.all(20), child: Text('$myCounter')),
+        Padding(
+            padding: EdgeInsets.all(20),
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              ElevatedButton(
+                  onPressed: onPressedMinus,
+                  child: Text("-"),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.teal))),
+              SizedBox(width: 20),
+              ElevatedButton(
+                  onPressed: onPressedPlus,
+                  child: Text('+'),
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Colors.purpleAccent)))
+            ]))
+      ],
+    );
+  }
+
+  void onPressedMinus() {
+    setState(() {
+      myCounter--;
+    });
+  }
+
+  void onPressedPlus() {
+    setState(() {
+      myCounter++;
+    });
+  }
 }
